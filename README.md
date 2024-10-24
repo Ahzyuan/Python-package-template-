@@ -1,16 +1,22 @@
 ## 📦 A Project template for self-developed Python package
 
-> Note: This repo inspired by https://github.com/navdeep-G/setup.py, and has been modified in strict accordance with the requirements of its open source license, in order to get a better experience.
+![Static Badge](https://img.shields.io/badge/Version-v1.0.1-green)
+![Static Badge](https://img.shields.io/badge/Build-setuptools-red?link=https%3A%2F%2Fgithub.com%2Fpypa%2Fsetuptools)
+![Static Badge](https://img.shields.io/badge/PyPi-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 
-This repo exists to provide a project structure template, that can be used to guide you in developing third-party Python packages.
+> Note:   
+> - This repo is inspired by https://github.com/navdeep-G/setup.py, aiming to boot up your develop speed when you are creating a new Python package.  
+> - This repo has been modified in strict accordance with the requirements of origin repo's license, and still adhere to the principle of open source sharing.
 
-It has the following characteristics:
+This repo exists to provide a project structure template, that can be used to accelerate the development of a Python third-party package.
 
-- A relatively complete software engineering project structure, including [code directory](package-name), [test directory](tests), [document directory](docs), and [demonstration directory](examples)
+## 🎯 Features
 
-- `setup.py` is a collection of useful patterns and best practices. It extends the `python setup.py` command to achieve one-step code updates, package builds, and releases to [PyPi](https://pypi.org/) using `Twine`.
+- A relatively complete project structure that complies with software engineering specifications, including functional directories: [code](package-name), [test](tests), [document](docs), and [project demonstration](examples)
 
-## 🔨Getting Started
+- A fully configured [`setup.py`](setup.py). You don't need to look up the documents for the meaning of each package's metadata, comments are provided for most of them. Meanwhile, it allows dynamic matching of update information when building packages, including `version`, `README`, and project dependencies .
+
+## 🔨 Getting Started
 
 ```bash
 # <project-root> stand for anywhere you want to store your project
@@ -37,28 +43,23 @@ after that, you should still configure the following files:
 
 ## 📑 To Do
 
+- [ ] Add full pipeline of package development, from project preparation to maintaining.
 - [ ] Add CI/CD support, such as GitHub Actions
-- [ ] Add pyproject support
+- [ ] Add `pyproject.toml` support
+- [ ] Add linter
 
 ## 👀 See More
 
 - [What is setup.py?] on Stack Overflow
 - [Official Python Packaging User Guide](https://packaging.python.org)
+- [Setuptools User Guide](https://setuptools.pypa.io/en/latest/userguide/index.html)
 - [The Hitchhiker's Guide to Packaging]
 - [Cookiecutter template for a Python package]
 
 # 🧾 License
 
-This is free and unencumbered software released into the public domain, ,modified from https://github.com/navdeep-G/setup.py.
+This is free and unencumbered software released into the public domain, modified from https://github.com/navdeep-G/setup.py.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled
 binary, for any purpose, commercial or non-commercial, and by any means.
-
-  [an example setup.py]: https://github.com/navdeep-G/setup.py/blob/master/setup.py
-  [PyPi]: https://docs.python.org/3/distutils/packageindex.html
-  [Twine]: https://pypi.python.org/pypi/twine
-  [image]: https://farm1.staticflickr.com/628/33173824932_58add34581_k_d.jpg
-  [What is setup.py?]: https://stackoverflow.com/questions/1471994/what-is-setup-py
-  [The Hitchhiker's Guide to Packaging]: https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html
-  [Cookiecutter template for a Python package]: https://github.com/audreyr/cookiecutter-pypackage

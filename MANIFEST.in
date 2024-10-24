@@ -1,6 +1,1 @@
-include README.md LICENSE requirements.txt
-
-exclude tests/*
-exclude docs/*
-
-recursive-include examples *.py
+global-exclude *.py[cod]
