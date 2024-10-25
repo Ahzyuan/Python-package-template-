@@ -62,6 +62,11 @@ except FileNotFoundError:
 REQUIRES_PYTHON = '>=3.6.0'
 ONLY_PACKAGE = True # will be parse to `include_package_data` in setup() 
 
+SETUP_REQUIRED = [
+        "isort",
+        "ruff"
+    ]
+
 # Load requirements.txt content to be REQUIRED variable.
 # Note: this will only work if 'requirements.txt' is present in your MANIFEST.in file!
 try:
@@ -118,6 +123,7 @@ setup(
     long_description_content_type='text/markdown',
     
     python_requires=REQUIRES_PYTHON,
+    setup_requires=SETUP_REQUIRED,
     install_requires=REQUIRED,
     tests_requires=TEST_REQUIRED,
     extras_require=EXTRAS,
