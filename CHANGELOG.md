@@ -1,3 +1,14 @@
+# v1.2.1
+
+![](https://img.shields.io/badge/Version-v1.2.1-green)
+
+## 🔄 Change
+
+- `check_meta.sh`: rectify logit of getting `Metadata-Version`
+- `README.md`: rectify usage of `keyring`.
+
+---
+
 # v1.2.0
 
 ![](https://img.shields.io/badge/Version-v1.2.0-green)

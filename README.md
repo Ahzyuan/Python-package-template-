@@ -1,6 +1,6 @@
 ## 📦 A Project Template for Self-developed Python Package
 
-![Package Version](https://img.shields.io/badge/Version-v1.2.0-green)
+![Package Version](https://img.shields.io/badge/Version-v1.2.1-green)
 [![License](https://img.shields.io/badge/License-MIT-khaki)](https://opensource.org/license/MIT)
 ![Pypi Template](https://img.shields.io/badge/PyPI-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 
@@ -85,7 +85,7 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     cd MYPROJECT
 
     # replace 'my-project' with your project name
-    mv package-name my-project
+    git mv package-name my-project
     ```
     <details>
     <summary>𝘯𝘰𝘸 𝘺𝘰𝘶𝘳 𝘱𝘳𝘰𝘫𝘦𝘤𝘵 𝘴𝘵𝘳𝘶𝘤𝘵𝘶𝘳𝘦 𝘴𝘩𝘰𝘶𝘭𝘥 𝘣𝘦 𝘭𝘪𝘬𝘦 𝘵𝘩𝘪𝘴</summary>
@@ -330,13 +330,21 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     EOF
 
     # encrypt your pypi token 
-    # same process for testpypi, just replace `pypi` with `testpypi`
-    keyring set pypi <username> 
+    ## pypi
+    keyring set https://upload.pypi.org/legacy/ __token__
 
     ## enter your pypi token when prompted
 
     # verify that the encrypted token has been stored
-    keyring get pypi <username> 
+    keyring get https://upload.pypi.org/legacy/ __token__ 
+
+    ## testpypi
+    keyring set https://test.pypi.org/legacy/ __token__
+
+    ## enter your pypi token when prompted
+
+    # verify that the encrypted token has been stored
+    keyring get https://test.pypi.org/legacy/ __token__
 
     # ---------------------- configure .pypirc ----------------------
     # refer to https://packaging.python.org/en/latest/specifications/pypirc/
@@ -379,9 +387,6 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 - [Official Python Packaging User Guide](https://packaging.python.org)
 - [Ruff document](https://docs.astral.sh/ruff/)
 - [Isort document](https://pycqa.github.io/isort/index.html)
-- [navdeep-/setup.py](https://jgithub.xyz/navdeep-G/setup.py)
-- [pypa/sampleproject](https://jgithub.xyz/pypa/sampleproject/)
-- [audreyfeldroy/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage)
 
 # 🧾 License
 
