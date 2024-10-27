@@ -1,6 +1,6 @@
 # See https://docs.astral.sh/ruff/settings for help
 
-target-version = "py36" # Always generate Python 3.6-compatible code.
+target-version = "py37" # Always generate Python 3.6-compatible code.
 line-length = 120 # Allow lines to be as long as 120.
 
 [format]

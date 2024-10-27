@@ -1,3 +1,37 @@
+# v1.2.0
+
+![](https://img.shields.io/badge/Version-v1.2.0-green)
+
+## 🔄 Change
+
+- `setup.py`: keep a minimal setting to ensure editable installation supported
+- `README.md`: finish full pipeline of package development.
+- `requirements.txt`: add more example dependencies.
+- `ruff.toml`: `target-version` set to `"py37"`, cause it is the minimum requirement.
+  
+## 🌟 Add 
+
+- `setup.cfg`: define the configuration of the build process
+- `packaging.sh`: auto build the distribution packages.
+- `check_meta.sh`: auto check the meta information of the built distribution packages.
+
+---
+
+# v1.1.0
+
+![](https://img.shields.io/badge/Version-v1.1.0-green)
+
+## 🔄 Change
+
+- `README.md`: Added more information and beautified it.
+- `setu.py`: add [`SETUP_REQUIRED`](https://github.com/Ahzyuan/Python-package-template/commit/dc9d10b85c22a14fb8cbda869f1f4a7936192f48#diff-60f61ab7a8d1910d86d9fda2261620314edcae5894d5aaa236b821c7256badd7R65)
+
+## 🌟 Add 
+
+- `CHANGELOG.md`: record version changes.
+- `ruff.toml`: define rules for code style, code inspection, and import management
+
+---
 
 # v1.0.1
 

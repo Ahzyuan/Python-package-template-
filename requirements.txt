@@ -1,2 +1,7 @@
-setuptools>=69.0.0
-numpy>=1.21.2
+setuptools>=51.0.0
+importlib-metadata
+isort
+ruff
+typer
+tqdm
+rich
