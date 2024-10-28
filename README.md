@@ -1,6 +1,6 @@
 ## 📦 A Project Template for Self-developed Python Package
 
-![Package Version](https://img.shields.io/badge/Version-v1.2.1-green)
+![Package Version](https://img.shields.io/badge/Version-v1.2.2-green)
 [![License](https://img.shields.io/badge/License-MIT-khaki)](https://opensource.org/license/MIT)
 ![Pypi Template](https://img.shields.io/badge/PyPI-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 
@@ -299,11 +299,14 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     > • So firstly, you need to register an account with [`PyPI`](https://pypi.org/) or [`TestPyPI`](https://test.pypi.org/).  
     > • Also, don't forget to generate a token for uploading your package. See more [here](https://pypi.org/help/#apitoken).
     
+    > 📋 **𝖲𝗎𝗀𝗀𝖾𝗌𝗍𝗂𝗈𝗇**   
+    > • You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the process.    
+    > • In this case, you can maintain a **forged `PyPI` server locally**, see `🧰 Tools Recommended -> pypi-server` below.
+
     ```bash
     # pwd: .../MYPROJECT
 
-    # (Option but strongly recommended) upload to testpypi first
-    # see if anywhere wrong
+    # (Option but strongly recommended) upload to testpypi firstly to see if anywhere wrong
     twine upload --repository testpypi dist/* 
 
     # upload to pypi
@@ -348,7 +351,7 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 
     # ---------------------- configure .pypirc ----------------------
     # refer to https://packaging.python.org/en/latest/specifications/pypirc/
-    # <username> should be same as the one you used in keyring
+    # <username> should be same as the one you use in keyring
     cat >~/.pypirc<<EOF
     [distutils]
     index-servers =
@@ -369,10 +372,81 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 
     </details>
 
+---
+
 > 🥳 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘂𝗹𝗮𝘁𝗶𝗼𝗻𝘀!   
 > • You have successfully published your package to `PyPI`.    
 > • Now everyone can install it via `pip install my-project -i https://pypi.org/simple`   
-> • To update your package to a new version, do `rm -r dist`, then repeat steps 5 to 8 above.
+> • To update your package to a new version, repeat steps 5 to 8 above.
+
+## 🧰 Tools Recommended
+
+<details>
+<summary>①. 𝚙𝚢𝚙𝚒-𝚜𝚎𝚛𝚟𝚎𝚛</summary>
+
+> • A simple `PyPI` server for local use.   
+> • This is **highly recommended** if you are **testing your CI/CD workflow**.
+
+You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with publishing process. Then there exists two problems:
+
+- [`TestPyPI` / `PyPI` project size limit](https://pypi.org/help/#project-size-limit): many commits can exceed project size limit.
+- Using `TestPyPI` as the index of `pip install` is not always reliable:  especially when your package depends on some packages that are only available on `PyPI` but not on `TestPyPI`.   
+For example, if your package `mp-project` depends on `ruff`, then `pip install mp-project -i https://test.pypi.org/simple` will fail with `ResolutionImpossible` or `Package not found` in the process of finding and downloading `ruff`, cause `ruff` is only available on `PyPI`.
+
+To solve these problems and fully imitate the bahvior normal `pip install` using `PyPI` index. You can deploy a local `PyPI` server with `pypi-server`.
+
+Here is a quick guide to get started, please check its [repo](https://github.com/pypiserver/pypiserver ) for more details.
+
+
+```bash
+
+pip install pypiserver 
+
+mkdir Path/to/store/packages  # path to store distribution packages
+
+pypi-server run \
+-i 0.0.0.0 \
+-p <port> \                  # specify a port to listen
+<path-to-store>/.pypiserver_pkgs\
+-a . -P . &                  # disable authentication for intranet use
+
+cat >~/.pypirc<<EOF          # add local server to .pypirc
+[distutils]
+index-servers =
+    pypi
+    testpypi
+    local
+
+[pypi]
+repository: https://upload.pypi.org/legacy/
+
+[testpypi]
+repository: https://test.pypi.org/legacy/
+
+[local]
+    repository: http://0.0.0.0:7418
+    username: none          # random string, not important
+    password: none          # random string, not important
+EOF
+```
+
+OK, then we can use commands below to upload and install packages:
+
+```bash
+# pwd: .../package project dir
+
+# upload package to local server
+twine upload --repository local dist/*
+
+# install package from local server
+pip install <package> \
+--trusted-host \
+--extra-index-url http://0.0.0.0:<port>/simple/ 
+```
+
+If you want to close the server, using `kill -9 "$(pgrep pypi-server)"`.
+
+</details>
 
 ## 📑 To Do
 

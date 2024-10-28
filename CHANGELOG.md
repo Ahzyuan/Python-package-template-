@@ -1,3 +1,14 @@
+# v1.2.2
+
+![](https://img.shields.io/badge/Version-v1.2.2-green)
+
+## 🔄 Change
+
+- `packaging.sh`: add logit of deleting the old distribution packages.
+- `README.md`: add `🧰 Tools Recommended` section.
+
+---
+
 # v1.2.1
 
 ![](https://img.shields.io/badge/Version-v1.2.1-green)
@@ -12,6 +23,11 @@
 # v1.2.0
 
 ![](https://img.shields.io/badge/Version-v1.2.0-green)
+
+## 🎉 Support manual package maintenance
+
+Including construction, inspection, and publishing to PyPI.   
+Please refer to steps `6` through `8` in [`README.md`](https://github.com/Ahzyuan/Python-package-template/blob/v1.2.0/README.md) file.
 
 ## 🔄 Change
 

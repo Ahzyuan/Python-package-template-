@@ -12,6 +12,12 @@ red_output() {
     echo -e "\033[31m$1\033[0m"
 }
 
+DIR=$(dirname "$(readlink -f "$0")")
+
+if [[ -d "$DIR/dist" ]]; then 
+    rm -r "$DIR/dist"
+fi
+
 eval "$(conda shell.bash hook)"
 
 envs=$(conda env list | grep -v "#" | cut -d " " -f1)
