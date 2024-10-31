@@ -1,3 +1,21 @@
+# v1.2.3
+
+![](https://img.shields.io/badge/Version-v1.2.3-green)
+
+## 🌟 Add 
+
+- `docs/README.md`: instructions for docs, provide some tool suggestions to help you quickly build your own document.
+- `tests/README.md`: instructions for testing, provide the whole procedure of testing.
+- `examples/demo.ipynb`: provide an example of how to demonstrate your project.
+
+## 🗑️ Delete
+
+- `docs/.gitkeep`
+- `tests/.gitkeep`
+- `examples/.gitkeep`
+
+---
+
 # v1.2.2
 
 ![](https://img.shields.io/badge/Version-v1.2.2-green)
