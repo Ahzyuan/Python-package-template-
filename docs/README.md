@@ -30,9 +30,9 @@ However, we can provide some tool suggestions to help you quickly build your own
    > <summary>🧩 𝙿̲𝚕̲𝚞̲𝚐̲𝚒̲𝚗̲ ̲𝚛̲𝚎̲𝚌̲𝚘̲𝚖̲𝚖̲𝚎̲𝚗̲𝚍̲𝚊̲𝚝̲𝚒̲𝚘̲𝚗̲</summary>
    > 
    > > More plugins refer to:  
-   > > • [Sphinx Built-in Plugins](https://www.sphinx-doc.org/en/master/usage/> extensions/index.html)    
+   > > • [Sphinx Built-in Plugins](https://www.sphinx-doc.org/en/master/usage/extensions/index.html)    
    > > • [Sphinx Third-Party Plugins](https://github.com/sphinx-contrib/)   
-   > > • [Awesome-sphinxdoc](https://github.com/yoloseem/> awesome-sphinxdoc#extensions)    
+   > > • [Awesome-sphinxdoc](https://github.com/yoloseem/awesome-sphinxdoc#extensions)    
    > > • [Sphinx-extensions](https://sphinx-extensions.readthedocs.io/en/latest/)
    > 
    > 1. `myst-parser`: Allow direct use of `Markdown` for writing and rendering > documents.
@@ -85,7 +85,7 @@ However, we can provide some tool suggestions to help you quickly build your own
 
 2. 𝗖𝗿𝗲𝗮𝘁𝗲 𝗮 `𝗦𝗽𝗵𝗶𝗻𝘅` 𝗽𝗿𝗼𝗷𝗲𝗰𝘁
 
-    > Note: clone this repo, and create a `Sphinx` project under the `docs` directory.
+    > clone this repo, and create a `Sphinx` project under the `docs` directory.
 
    - **Initial configuration**: set the project name, author, version, etc., and choose whether to separate the source directory and the build directory.
 
@@ -206,7 +206,7 @@ However, we can provide some tool suggestions to help you quickly build your own
 
 2. 𝗖𝗿𝗲𝗮𝘁𝗲 𝗮 `𝗠𝗸𝗗𝗼𝗰𝘀` 𝗽𝗿𝗼𝗷𝗲𝗰𝘁
    
-   > Note: clone this repo, and create a `Mkdocs` project under the `docs` directory.
+   > clone this repo, and create a `Mkdocs` project under the `docs` directory.
 
    - **Initial configuration**: the command below will generate a `mkdocs.yml` configuration file under `<Project_dir>` and generate an `index.md` file under the `docs` folder.
 

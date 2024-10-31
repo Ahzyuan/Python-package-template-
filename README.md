@@ -17,58 +17,72 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 
 ## 🎯 Features
 
-- 𝐀 𝐮𝐬𝐞𝐟𝐮𝐥, 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 that complies with software engineering specifications. 
-    <details>
-    <summary>𝖯𝗋𝗈𝗃𝖾𝖼𝗍 𝗌𝗍𝗋𝗎𝖼𝗍𝗎𝗋𝖾 𝖾𝗑𝗉𝗅𝖺𝗇𝖺𝗍𝗂𝗈𝗇</summary>
+<details>
+<summary>𝐀 𝐮𝐬𝐞𝐟𝐮𝐥, 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 that complies with software engineering specifications.</summary>
 
-    ```
-    Python-package-template/
-    ├── tests/           # Storage unit test code
-    ├── docs/            # Store document related files
-    ├── examples/        # Store project demo code
-    ├── package-name/    # Store project code
-    │   ├── core.py      # Core code
-    │   └── __init__.py  # Package initialization file, defining copyright, version, and other information
-    ├── .gitignore       # File ignored by Git
-    ├── LICENSE          # Project license
-    ├── MANIFEST.in      # Describe the files included or not included in build package
-    ├── CHANGELOG.md     # Project changelog
-    ├── README.md        # Project description
-    ├── requirements.txt # Project dependency
-    ├── ruff.toml        # Define rules for code style, code inspection, and import management
-    ├── packaging.sh     # Package building script
-    ├── check_meta.sh    # Distribution metadata checking script
-    ├── setup.cfg        # Project packaging configuration
-    └── setup.py         # Project packaging script
-    ```
+```
+Python-package-template/
+├── tests/           # Storage unit test code
+│   └── README.md    # Instructions for testing your code
+├── docs/            # Store document related files
+│   └── README.md    # Instructions for building document for your project
+├── examples/        # Store project demo code
+│   └── demo.ipynb   # Demonstration of your project
+├── package-name/    # Store project code
+│   ├── core.py      # Core code
+│   └── __init__.py  # Package initialization file, defining copyright, version,and other information
+├── .gitignore       # File ignored by Git
+├── LICENSE          # Project license
+├── MANIFEST.in      # Describe the files included or not included in buildpackage
+├── CHANGELOG.md     # Project changelog
+├── README.md        # Project description
+├── requirements.txt # Project dependency
+├── ruff.toml        # Define rules for code style, code inspection, and importmanagement
+├── packaging.sh     # Package building script
+├── check_meta.sh    # Distribution metadata checking script
+├── setup.cfg        # Project packaging configuration
+└── setup.py         # Project packaging script
+```
 
-    </details>
+</details>
 
-- 𝐀 𝐟𝐮𝐥𝐥𝐲 𝐜𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐞𝐝 [`𝐬𝐞𝐭𝐮𝐩.𝐜𝐟𝐠`](setup.cfg)
+<details>
+<summary>𝐀 𝐟𝐮𝐥𝐥𝐲 𝐜𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐞𝐝 <font color=royalblue>𝐬𝐞𝐭𝐮𝐩.𝐜𝐟𝐠</font></summary>
 
-    - **𝖧𝖺𝗇𝖽𝗒 𝖺𝗇𝖽 𝖼𝗈𝗆𝗉𝗋𝖾𝗁𝖾𝗇𝗌𝗂𝗏𝖾**: covers most common config items. Allows dynamic access to `version`, `README`, and project dependencies at build time.
-    - **𝖶𝖾𝗅𝗅 𝖼𝗈𝗆𝗆𝖾𝗇𝗍𝖾𝖽**: no need to look up [documents](https://setuptools.pypa.io/en/latest/references/keywords.html) to understand each item's meaning, comments are provided for most of them. 
+> 💡 Tips      
+> • We use [`setup.cfg`](setup.cfg) to manage all metadata, and just keep a minimal `setup.py` to ensure editable installation supported.       
+> 
+> • Meanwhile, we leave all the work of code checking and import management to awesome [`Ruff`](https://github.com/astral-sh/ruff), i.e., using [`ruff.toml`](ruff.toml).
 
-- 𝐄𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐭 𝐚𝐧𝐝 𝐬𝐭𝐚𝐧𝐝𝐚𝐫𝐝: We use the wonderful Python linter and formatter [`Ruff`](https://github.com/astral-sh/ruff) to ensure code quality and maintainability
+- **𝖧𝖺𝗇𝖽𝗒 𝖺𝗇𝖽 𝖼𝗈𝗆𝗉𝗋𝖾𝗁𝖾𝗇𝗌𝗂𝗏𝖾**: covers most common config items. Allows dynamic access to `version`, `README`, and project dependencies at build time.
 
-> Note: We use `setup.cfg` to manage all metadata, and just keep a minimal `setup.py` to ensure editable installation supported. Meanwhile, we leave all the work of code checking and import management to awesome [`Ruff`](https://github.com/astral-sh/ruff), i.e., using [`ruff.toml`](ruff.toml).
+- **𝖶𝖾𝗅𝗅 𝖼𝗈𝗆𝗆𝖾𝗇𝗍𝖾𝖽**: no need to look up [documents](https://setuptools.pypa.io/en/latest/references/keywords.html) to understand each item's meaning, comments are provided for most of them. 
+
+</details>
+
+<details>
+<summary>𝐄𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐭 𝐚𝐧𝐝 𝐬𝐭𝐚𝐧𝐝𝐚𝐫𝐝</summary>
+
+We use the wonderful Python linter and formatter [`Ruff`](https://github.com/astral-sh/ruff) to ensure code quality and maintainability
+
+</details>
 
 ## 🔨 Usage
 
-> ⚠⚠⚠   
+> [!IMPORTANT]   
 > In demo below, we assume that your github ID is `me` and project name is `my-project`. Remember to replace them with **your own ID and project name** when using.
 
 1. <details>
     <summary>🚀 𝐂𝐫𝐞𝐚𝐭𝐞 𝐲𝐨𝐮𝐫 𝐫𝐞𝐩𝐨</summary>
     
-    > press the `Use this template` button next to `star` button,   
-    > so as to use this repo as a template to create your repo.
+    Press the `Use this template` button next to `star` button,   
+    so as to use this repo as a template to create your repo.
   
 2. <details>
    <summary>📥 𝐂𝐥𝐨𝐧𝐞 𝐲𝐨𝐮𝐫 𝐫𝐞𝐩𝐨 𝐭𝐨 𝐥𝐨𝐜𝐚𝐥 𝐦𝐚𝐜𝐡𝐢𝐧𝐞</summary>
     
-    > Find new repo on your GitHub `repositories` page.    
-    > Pull locally with `git clone`.
+    Find new repo on your GitHub `repositories` page.    
+    Pull it to your machine with `git clone`.
 
     ```bash
     # replace 'me' with your github ID, 
@@ -87,30 +101,35 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     # replace 'my-project' with your project name
     git mv package-name my-project
     ```
-    <details>
-    <summary>𝘯𝘰𝘸 𝘺𝘰𝘶𝘳 𝘱𝘳𝘰𝘫𝘦𝘤𝘵 𝘴𝘵𝘳𝘶𝘤𝘵𝘶𝘳𝘦 𝘴𝘩𝘰𝘶𝘭𝘥 𝘣𝘦 𝘭𝘪𝘬𝘦 𝘵𝘩𝘪𝘴</summary>
 
-    ```
-    MYPROJECT/
-    ├── tests/           
-    ├── docs/            
-    ├── examples/        
-    ├── my-project/    
-    │   ├── core.py      
-    │   └── __init__.py  
-    ├── .gitignore       
-    ├── LICENSE          
-    ├── MANIFEST.in     
-    ├── CHANGELOG.md     
-    ├── README.md        
-    ├── requirements.txt 
-    ├── ruff.toml       
-    ├── packaging.sh     
-    ├── check_meta.sh    
-    ├── setup.cfg        
-    └── setup.py         
-    ```
-    </details>
+    > <details>
+    > <summary>𝘯𝘰𝘸 𝘺𝘰𝘶𝘳 𝘱𝘳𝘰𝘫𝘦𝘤𝘵 𝘴𝘵𝘳𝘶𝘤𝘵𝘶𝘳𝘦 𝘴𝘩𝘰𝘶𝘭𝘥 𝘣𝘦 𝘭𝘪𝘬𝘦 𝘵𝘩𝘪𝘴</summary>
+    >
+    > ```
+    > MYPROJECT/
+    > ├── tests/ 
+    > │   └── README.md           
+    > ├── docs/   
+    > │   └── README.md                
+    > ├── examples/  
+    > │   └── demo.ipynb             
+    > ├── my-project/    
+    > │   ├── core.py      
+    > │   └── __init__.py  
+    > ├── .gitignore       
+    > ├── LICENSE          
+    > ├── MANIFEST.in     
+    > ├── CHANGELOG.md     
+    > ├── README.md        
+    > ├── requirements.txt 
+    > ├── ruff.toml       
+    > ├── packaging.sh     
+    > ├── check_meta.sh    
+    > ├── setup.cfg        
+    > └── setup.py         
+    > ```
+    > 
+    > </details>
     
     </details>
 
@@ -118,15 +137,17 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     <summary>📄 𝐌𝐨𝐝𝐢𝐟𝐲 𝐭𝐡𝐞 𝐟𝐨𝐥𝐥𝐨𝐰𝐢𝐧𝐠 𝐟𝐢𝐥𝐞𝐬</summary>
 
     <details>
-    <summary>① 𝚜𝚎𝚝𝚞𝚙.𝚙𝚢 (𝚖𝚘𝚜𝚝 𝚒𝚖𝚙𝚘𝚛𝚝𝚊𝚗𝚝)</summary>
+    <summary>① 𝚜𝚎𝚝𝚞𝚙.𝚌𝚏𝚐 (𝚖𝚘𝚜𝚝 𝚒𝚖𝚙𝚘𝚛𝚝𝚊𝚗𝚝)</summary>
 
-    > • Look for the following variables in the file and modify as per comments.  
+    > 💡 Tips  
     > 
     > • If your `README` is in `rst` format, you need to change `long_description_content_type` to `"text/x-rst"` instead.  
     > 
     > • If you want to create a CLI command for your package, enable `[options.entry_points]` option. See more [here](https://packaging.python.org/en/latest/guides/creating-command-line-tools/).
     > 
     > • If you want more configuration, refer to [here](https://setuptools.pypa.io/en/latest/references/keywords.html)
+
+    **Look for the following variables in the file and modify as per comments.**
 
     |       Basic        |    Requirement related     | Package structure related |
     |:------------------:|:--------------------------:|:-------------------------:|
@@ -228,7 +249,7 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 5.  <details>
     <summary>👨‍💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩 𝐲𝐨𝐮𝐫 𝐩𝐫𝐨𝐣𝐞𝐜𝐭</summary>
 
-    > 💡 Tips  
+    > 💡 Tips    
     > • Cross-module imports can be made via `.module-name` or `my-project.module-name` in each module file.  
     > 
     > • You can test your code using `python -m my-project.<module-name>` with working directory in `MYPROJECT`.   
@@ -300,8 +321,7 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     > • Also, don't forget to generate a token for uploading your package. See more [here](https://pypi.org/help/#apitoken).
     
     > 📋 **𝖲𝗎𝗀𝗀𝖾𝗌𝗍𝗂𝗈𝗇**   
-    > • You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the process.    
-    > • In this case, you can maintain a **forged `PyPI` server locally**, see `🧰 Tools Recommended -> pypi-server` below.
+    > You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the process. In this case, you can maintain a **forged `PyPI` server locally**, see [`🧰 Tools Recommended -> pypi-server` below](#tools-recommended).
 
     ```bash
     # pwd: .../MYPROJECT
@@ -313,62 +333,11 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
     # then everyone can install your package via `pip install my-project`
     twine upload --repository pypi dist/* 
     ```
-    After executing command above, you will be asked to enter your account token.  
+    After executing command above, you will be asked to **enter your account token**.  
 
-    Sure, you can paste your token in terminal to go through the process.   
+    - Sure, you can paste your token in terminal to go through the process.   
     
-    But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step below:
-
-    <details>
-    <summary>🔐 𝖼𝗈𝗇𝖿𝗂𝗀𝗎𝗋𝖾 .𝚙𝚢𝚙𝚒𝚛𝚌 𝖺𝗇𝖽 𝚔𝚎𝚢𝚛𝚒𝚗𝚐</summary>
-
-    ```bash
-    # ---------------------- configure keyring first ----------------------
-    pip install keyring keyrings.alt
-
-    # if you are on Linux, execute commands below additionally.
-    cat >"$(keyring diagnose | grep "config path:" | cut -d' ' -f3)"<<EOF
-    [backend]
-    default-keyring=keyrings.alt.file.PlaintextKeyring
-    EOF
-
-    # encrypt your pypi token 
-    ## pypi
-    keyring set https://upload.pypi.org/legacy/ __token__
-
-    ## enter your pypi token when prompted
-
-    # verify that the encrypted token has been stored
-    keyring get https://upload.pypi.org/legacy/ __token__ 
-
-    ## testpypi
-    keyring set https://test.pypi.org/legacy/ __token__
-
-    ## enter your pypi token when prompted
-
-    # verify that the encrypted token has been stored
-    keyring get https://test.pypi.org/legacy/ __token__
-
-    # ---------------------- configure .pypirc ----------------------
-    # refer to https://packaging.python.org/en/latest/specifications/pypirc/
-    # <username> should be same as the one you use in keyring
-    cat >~/.pypirc<<EOF
-    [distutils]
-    index-servers =
-        pypi
-        testpypi
-
-    [pypi]
-    repository = https://upload.pypi.org/legacy/
-
-    [testpypi]
-    repository = https://test.pypi.org/legacy/
-    EOF
-
-    chmod 600 ~/.pypirc
-    ```
-
-    </details>
+    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in [`configure.pypirc and keyring 🔐` below](#tools-recommended).:
 
     </details>
 
@@ -376,24 +345,25 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 
 > 🥳 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘂𝗹𝗮𝘁𝗶𝗼𝗻𝘀!   
 > • You have successfully published your package to `PyPI`.    
-> • Now everyone can install it via `pip install my-project -i https://pypi.org/simple`   
+> • Now everyone can install it via `pip install my-project`   
 > • To update your package to a new version, repeat steps 5 to 8 above.
 
 ## 🧰 Tools Recommended
 
 <details>
-<summary>①. 𝚙𝚢𝚙𝚒-𝚜𝚎𝚛𝚟𝚎𝚛</summary>
+<summary>Ⅰ 𝚙𝚢𝚙𝚒-𝚜𝚎𝚛𝚟𝚎𝚛 🖥️</summary>
 
-> • A simple `PyPI` server for local use.   
-> • This is **highly recommended** if you are **testing your CI/CD workflow**.
+> • **What is it**: A simple `PyPI` server for local use.   
+> • **Highly recommended** if you are **testing your CI/CD workflow**.
 
 You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with publishing process. Then there exists two problems:
+  
+> • [`TestPyPI` / `PyPI` project size limit](https://pypi.org/help/#project-size-limit): many commits can exceed project size limit.    
+> 
+> • Using `TestPyPI` as the index of `pip install` is not always reliable:  especially when your package depends on some packages that are only available on `PyPI` but not on `TestPyPI`.   
+> >For example, if your package `mp-project` depends on `ruff`, then `pip install mp-project -i https://test.pypi.org/simple` will fail with `ResolutionImpossible` or `Package not found` in the process of finding and downloading `ruff`, cause `ruff` is only available on `PyPI`.
 
-- [`TestPyPI` / `PyPI` project size limit](https://pypi.org/help/#project-size-limit): many commits can exceed project size limit.
-- Using `TestPyPI` as the index of `pip install` is not always reliable:  especially when your package depends on some packages that are only available on `PyPI` but not on `TestPyPI`.   
-For example, if your package `mp-project` depends on `ruff`, then `pip install mp-project -i https://test.pypi.org/simple` will fail with `ResolutionImpossible` or `Package not found` in the process of finding and downloading `ruff`, cause `ruff` is only available on `PyPI`.
-
-To solve these problems and fully imitate the bahvior normal `pip install` using `PyPI` index. You can deploy a local `PyPI` server with `pypi-server`.
+To solve these problems and fully imitate the bahvior of normal `pip install` using `PyPI` index. You can deploy a local `PyPI` server with `pypi-server`.
 
 Here is a quick guide to get started, please check its [repo](https://github.com/pypiserver/pypiserver ) for more details.
 
@@ -445,6 +415,64 @@ pip install <package> \
 ```
 
 If you want to close the server, using `kill -9 "$(pgrep pypi-server)"`.
+
+</details>
+
+<details>
+<summary>Ⅱ 𝖼𝗈𝗇𝖿𝗂𝗀𝗎𝗋𝖾 .𝚙𝚢𝚙𝚒𝚛𝚌 𝖺𝗇𝖽 𝚔𝚎𝚢𝚛𝚒𝚗𝚐 🔐</summary>
+
+1. Configure `keyring` first
+
+    ```bash
+    pip install keyring keyrings.alt
+
+    # if you are on Linux, execute commands below additionally.
+    cat >"$(keyring diagnose | grep "config path:" | cut -d' ' -f3)"<<EOF
+    [backend]
+    default-keyring=keyrings.alt.file.PlaintextKeyring
+    EOF
+
+    # encrypt your pypi token 
+    ## pypi
+    keyring set https://upload.pypi.org/legacy/ __token__
+
+    ## enter your pypi token when prompted
+
+    # verify that the encrypted token has been stored
+    keyring get https://upload.pypi.org/legacy/ __token__ 
+
+    # ------------------------ same for testpypi ------------------------
+
+    ## testpypi
+    keyring set https://test.pypi.org/legacy/ __token__
+
+    ## enter your pypi token when prompted
+
+    # verify that the encrypted token has been stored
+    keyring get https://test.pypi.org/legacy/ __token__
+    ```
+
+2. Configure `.pypirc`
+
+    ```bash
+    # refer to https://packaging.python.org/en/latest/specifications/pypirc/
+    cat >~/.pypirc<<EOF
+    [distutils]
+    index-servers =
+        pypi
+        testpypi
+
+    [pypi]
+    repository = https://upload.pypi.org/legacy/
+
+    [testpypi]
+    repository = https://test.pypi.org/legacy/
+    EOF
+
+    chmod 600 ~/.pypirc
+    ```
+
+3. At this point, there is **no need** to verify your token manually when you upload packages via `twine upload`
 
 </details>
 
