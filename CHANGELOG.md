@@ -1,3 +1,17 @@
+# v1.3.0
+
+![](https://img.shields.io/badge/Version-v1.3.0-green)
+
+## 🌟 Add 
+
+1. `.github/CONTRIBUTING.md` : guide other to make contribution to your project. 
+
+2. `.github/ISSUE_TEMPLATE` : standardize the format of `issue` reporting. Composed of `bug_report.yml`, `feature_request.yml` and `config.yml`.
+
+3. `.github/PULL_REQUEST_TEMPLATE.md` : standardize the format of `Pull Request`. 
+
+---
+
 # v1.2.3
 
 ![](https://img.shields.io/badge/Version-v1.2.3-green)

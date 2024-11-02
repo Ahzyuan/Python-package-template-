@@ -1,6 +1,6 @@
 ## 📦 A Project Template for Self-developed Python Package
 
-[![Package Version](https://img.shields.io/badge/Version-v1.2.3-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.2.3)
+[![Package Version](https://img.shields.io/badge/Version-v1.3.0-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.3.0)
 [![License](https://img.shields.io/badge/License-MIT-khaki)](https://opensource.org/license/MIT)
 ![Pypi Template](https://img.shields.io/badge/PyPI-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 
@@ -20,7 +20,10 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 <details>
 <summary>𝐀 𝐮𝐬𝐞𝐟𝐮𝐥, 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 that complies with software engineering specifications.</summary>
 
-```
+```plaix-txt
+# Note: 
+# the directory structure below neglects the `.github` dir and `.gitignore` file
+
 Python-package-template/
 ├── tests/           # Storage unit test code
 │   └── README.md    # Instructions for testing your code
@@ -31,7 +34,6 @@ Python-package-template/
 ├── package-name/    # Store project code
 │   ├── core.py      # Core code
 │   └── __init__.py  # Package initialization file, defining copyright, version,and other information
-├── .gitignore       # File ignored by Git
 ├── LICENSE          # Project license
 ├── MANIFEST.in      # Describe the files included or not included in buildpackage
 ├── CHANGELOG.md     # Project changelog
@@ -106,6 +108,9 @@ We use the wonderful Python linter and formatter [`Ruff`](https://github.com/ast
     > <summary>𝘯𝘰𝘸 𝘺𝘰𝘶𝘳 𝘱𝘳𝘰𝘫𝘦𝘤𝘵 𝘴𝘵𝘳𝘶𝘤𝘵𝘶𝘳𝘦 𝘴𝘩𝘰𝘶𝘭𝘥 𝘣𝘦 𝘭𝘪𝘬𝘦 𝘵𝘩𝘪𝘴</summary>
     >
     > ```
+    > # Note: 
+    > # the directory structure below neglects the `.github` dir and `.gitignore` file
+    > 
     > MYPROJECT/
     > ├── tests/ 
     > │   └── README.md           
@@ -115,8 +120,7 @@ We use the wonderful Python linter and formatter [`Ruff`](https://github.com/ast
     > │   └── demo.ipynb             
     > ├── my-project/    
     > │   ├── core.py      
-    > │   └── __init__.py  
-    > ├── .gitignore       
+    > │   └── __init__.py       
     > ├── LICENSE          
     > ├── MANIFEST.in     
     > ├── CHANGELOG.md     
@@ -475,6 +479,27 @@ If you want to close the server, using `kill -9 "$(pgrep pypi-server)"`.
 3. At this point, there is **no need** to verify your token manually when you upload packages via `twine upload`
 
 </details>
+
+## 🗃 Project Management 
+
+> This section emphasizes the effective management of your project on `GitHub`.
+
+The following files are helpful for **standardizing the process of `issue` reporting and `Pull Request`**. 
+
+They are preset in this template repo, you can change them according to your needs
+
+1. [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) : guide other to make contribution to your project. To change it, refer to [link](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
+
+2. [`.github/ISSUE_TEMPLATE`](.github/ISSUE_TEMPLATE) : standardize the format of `issue` reporting. Composed of
+    > Tips: Open the [`Issue page`](https://github.com/Ahzyuan/Python-package-template/issues/new/choose) to see what the template looks like.
+
+    - [`bug_report.yml`](.github/ISSUE_TEMPLATE/bug_report.yml): template for reporting bugs.
+    - [`feature_request.yml`](.github/ISSUE_TEMPLATE/feature_request.yml): template for requesting new features.
+    - [`config.yml`](.github/ISSUE_TEMPLATE/config.yml): A template selector to control others' ability to initiate an `issue` without using a template.
+    
+    If you are to change it, refer to [link1](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository), [link2](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms) and [link3](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
+   
+1. [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) : standardize the format of `Pull Request`. To change it, refer to [link](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
 
 ## 📑 To Do
 
