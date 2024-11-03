@@ -1,6 +1,6 @@
 ## 📦 A Project Template for Self-developed Python Package
 
-[![Package Version](https://img.shields.io/badge/Version-v1.3.0-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.3.0)
+[![Package Version](https://img.shields.io/badge/Version-v1.3.1-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.3.1)
 [![License](https://img.shields.io/badge/License-MIT-khaki)](https://opensource.org/license/MIT)
 ![Pypi Template](https://img.shields.io/badge/PyPI-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 
@@ -18,22 +18,56 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 ## 🎯 Features
 
 <details>
-<summary>𝐀 𝐮𝐬𝐞𝐟𝐮𝐥, 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 that complies with software engineering specifications.</summary>
+<summary>𝐏𝐫𝐚𝐜𝐭𝐢𝐜𝐚𝐥, 𝐚𝐧𝐝 𝐫𝐞𝐚𝐝𝐲 𝐭𝐨 𝐠𝐨 𝐬𝐭𝐫𝐚𝐢𝐠𝐡𝐭 𝐨𝐮𝐭 𝐨𝐟 𝐭𝐡𝐞 𝐛𝐨𝐱</summary>
+
+> 💡 Tips      
+> • We use [`setup.cfg`](setup.cfg) to manage all metadata, and just keep a minimal [`setup.py`](setup.py) to ensure editable installation supported. 
+
+We provide:
+
+1. **A fully configured package-setup file**, i.e., [`setup.cfg`](setup.cfg)
+   - It covers most common config items, allows dynamic access to `version`, `README`, and project dependencies at build time.
+   - It is well commented, so you don't need to look up [documents](https://setuptools.pypa.io/en/latest/references/keywords.html) to understand each item's meaning.
+
+2. **A complete and concise usage guidance**, i.e. [`🔨 Usage`](#-usage) below.      
+
+</details>
+
+<details>
+<summary>𝐄𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐭 𝐚𝐧𝐝 𝐩𝐫𝐨𝐟𝐞𝐬𝐬𝐢𝐨𝐧𝐚𝐥</summary>
+
+We provide a **useful, complete project structure**, which    
+• not only complies with software engineering specifications,    
+• but also includes **all file templates** required for a project and **continuous deployment(CD) workflows**(see [`CI/CD via Github Action 🤖` below](#-project-management)).
+
+Here is the detailed structure of the project:
 
 ```plaix-txt
-# Note: 
-# the directory structure below neglects the `.github` dir and `.gitignore` file
-
 Python-package-template/
+├── .github/                      # Storage Github Action workflow files and templates of Issue, PR 
+│   ├── CONTRIBUTING.md           # Instructions for contributing to project
+│   ├── ISSUE_TEMPLATE            # Storage Issue template files
+│   │   ├── bug_report.yml        # Bug report template
+│   │   ├── feature_request.yml   # Feature request template
+│   │   └── config.yml            # Template choosing configuration
+│   ├── PULL_REQUEST_TEMPLATE.md  # Template for PR description
+│   └── workflows                 # Storage Github Action workflow files    
+│       └── publish_release.yml   # Workflow for publishing and releaseing Python package
+|
 ├── tests/           # Storage unit test code
 │   └── README.md    # Instructions for testing your code
+|
 ├── docs/            # Store document related files
 │   └── README.md    # Instructions for building document for your project
+|
 ├── examples/        # Store project demo code
 │   └── demo.ipynb   # Demonstration of your project
+|
 ├── package-name/    # Store project code
 │   ├── core.py      # Core code
 │   └── __init__.py  # Package initialization file, defining copyright, version,and other information
+|
+├── .gitignore       # File ignored by Git
 ├── LICENSE          # Project license
 ├── MANIFEST.in      # Describe the files included or not included in buildpackage
 ├── CHANGELOG.md     # Project changelog
@@ -49,30 +83,19 @@ Python-package-template/
 </details>
 
 <details>
-<summary>𝐀 𝐟𝐮𝐥𝐥𝐲 𝐜𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐞𝐝 <font color=royalblue>𝐬𝐞𝐭𝐮𝐩.𝐜𝐟𝐠</font></summary>
+<summary>𝐒𝐭𝐚𝐧𝐝𝐚𝐫𝐝 𝐲𝐞𝐭 𝐡𝐢𝐠𝐡𝐥𝐲 𝐜𝐮𝐬𝐭𝐨𝐦𝐢𝐳𝐚𝐛𝐥𝐞</summary>
 
-> 💡 Tips      
-> • We use [`setup.cfg`](setup.cfg) to manage all metadata, and just keep a minimal `setup.py` to ensure editable installation supported.       
-> 
-> • Meanwhile, we leave all the work of code checking and import management to awesome [`Ruff`](https://github.com/astral-sh/ruff), i.e., using [`ruff.toml`](ruff.toml).
-
-- **𝖧𝖺𝗇𝖽𝗒 𝖺𝗇𝖽 𝖼𝗈𝗆𝗉𝗋𝖾𝗁𝖾𝗇𝗌𝗂𝗏𝖾**: covers most common config items. Allows dynamic access to `version`, `README`, and project dependencies at build time.
-
-- **𝖶𝖾𝗅𝗅 𝖼𝗈𝗆𝗆𝖾𝗇𝗍𝖾𝖽**: no need to look up [documents](https://setuptools.pypa.io/en/latest/references/keywords.html) to understand each item's meaning, comments are provided for most of them. 
-
-</details>
-
-<details>
-<summary>𝐄𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐭 𝐚𝐧𝐝 𝐬𝐭𝐚𝐧𝐝𝐚𝐫𝐝</summary>
-
-We use the wonderful Python linter and formatter [`Ruff`](https://github.com/astral-sh/ruff) to ensure code quality and maintainability
+- **We standardize code sytle and quality** with the wonderful Python linter and formatter [`Ruff`](https://github.com/astral-sh/ruff).
+- **We standardize contributing pipeline** with [`CONTRIBUTING.md`](.github/CONTRIBUTING.md) to cuts communication costs and boosts development efficiency.
+- **We offer ready-to-use templates** for `issue`, `pull requests(PR)`, and package publishing workflows, complete with modifications and usage instructions to help you customize them effectively.
 
 </details>
 
 ## 🔨 Usage
 
 > [!IMPORTANT]   
-> In demo below, we assume that your github ID is `me` and project name is `my-project`. Remember to replace them with **your own ID and project name** when using.
+> In demo below, we assume that your github ID is `me` and project name is `my-project`.          
+> **❗️❗️❗️ Remember to replace them with your own ID and project name when using ❗️❗️❗️**
 
 1. <details>
     <summary>🚀 𝐂𝐫𝐞𝐚𝐭𝐞 𝐲𝐨𝐮𝐫 𝐫𝐞𝐩𝐨</summary>
@@ -109,18 +132,23 @@ We use the wonderful Python linter and formatter [`Ruff`](https://github.com/ast
     >
     > ```
     > # Note: 
-    > # the directory structure below neglects the `.github` dir and `.gitignore` file
+    > # the directory structure below neglects the `.github` dir
     > 
     > MYPROJECT/
     > ├── tests/ 
-    > │   └── README.md           
+    > │   └── README.md     
+    > |      
     > ├── docs/   
-    > │   └── README.md                
+    > │   └── README.md    
+    > |            
     > ├── examples/  
-    > │   └── demo.ipynb             
+    > │   └── demo.ipynb    
+    > |         
     > ├── my-project/    
     > │   ├── core.py      
-    > │   └── __init__.py       
+    > │   └── __init__.py   
+    > |
+    > ├── .gitignore   
     > ├── LICENSE          
     > ├── MANIFEST.in     
     > ├── CHANGELOG.md     
@@ -248,6 +276,16 @@ We use the wonderful Python linter and formatter [`Ruff`](https://github.com/ast
 
     </details>
 
+    <details>
+    <summary> ⑦ .𝚐𝚒𝚝𝚑𝚞𝚋/𝚠𝚘𝚛𝚔𝚏𝚕𝚘𝚠𝚜/𝚙𝚞𝚋𝚕𝚒𝚜𝚑_𝚛𝚎𝚕𝚎𝚊𝚜𝚎.𝚢𝚖𝚕 </summary>
+
+    > • Change this file to use `Github Actions` for package publication.    
+    > • If you want to change the preset workflow, see see [`CI/CD via Github Action 🤖` below](#-project-management) below and refer to [Github Actions document](https://docs.github.com/en/actions)
+
+    - `<package-name>` → `my-project`
+  
+    </details>
+
     </details>
 
 5.  <details>
@@ -341,7 +379,7 @@ We use the wonderful Python linter and formatter [`Ruff`](https://github.com/ast
 
     - Sure, you can paste your token in terminal to go through the process.   
     
-    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in [`configure.pypirc and keyring 🔐` below](#tools-recommended).:
+    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in [`configure .pypirc and keyring 🔐` below](#tools-recommended).:
 
     </details>
 
@@ -350,7 +388,9 @@ We use the wonderful Python linter and formatter [`Ruff`](https://github.com/ast
 > 🥳 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘂𝗹𝗮𝘁𝗶𝗼𝗻𝘀!   
 > • You have successfully published your package to `PyPI`.    
 > • Now everyone can install it via `pip install my-project`   
-> • To update your package to a new version, repeat steps 5 to 8 above.
+> • To update your package to a new version, you have two choices:    
+> ① Manually update: repeat steps 5 to 8 above.    
+> ② CI/CD workflow(**recommended**): see [`CI/CD via Github Action 🤖` below](#-project-management)
 
 ## 🧰 Tools Recommended
 
@@ -369,11 +409,10 @@ You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself wit
 
 To solve these problems and fully imitate the bahvior of normal `pip install` using `PyPI` index. You can deploy a local `PyPI` server with `pypi-server`.
 
-Here is a quick guide to get started, please check its [repo](https://github.com/pypiserver/pypiserver ) for more details.
+Here is a quick guide to get started, please check [pypiserver's repo](https://github.com/pypiserver/pypiserver ) for more details.
 
 
 ```bash
-
 pip install pypiserver 
 
 mkdir Path/to/store/packages  # path to store distribution packages
@@ -418,7 +457,7 @@ pip install <package> \
 --extra-index-url http://0.0.0.0:<port>/simple/ 
 ```
 
-If you want to close the server, using `kill -9 "$(pgrep pypi-server)"`.
+❗️❗️❗️ If you want to close the server, using `kill -9 "$(pgrep pypi-server)"`.
 
 </details>
 
@@ -484,9 +523,10 @@ If you want to close the server, using `kill -9 "$(pgrep pypi-server)"`.
 
 > This section emphasizes the effective management of your project on `GitHub`.
 
-The following files are helpful for **standardizing the process of `issue` reporting and `Pull Request`**. 
+<details>
+<summary>Ⅰ 𝐒𝐭𝐚𝐧𝐝𝐚𝐫𝐝𝐢𝐳𝐞𝐝 𝐜𝐨𝐧𝐭𝐫𝐢𝐛𝐮𝐭𝐢𝐨𝐧 𝐩𝐫𝐨𝐜𝐞𝐬𝐬 💼</summary>
 
-They are preset in this template repo, you can change them according to your needs
+Standardizing project participation cuts communication costs and boosts development efficiency. This mainly focus on the files below: 
 
 1. [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) : guide other to make contribution to your project. To change it, refer to [link](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
 
@@ -495,25 +535,55 @@ They are preset in this template repo, you can change them according to your nee
 
     - [`bug_report.yml`](.github/ISSUE_TEMPLATE/bug_report.yml): template for reporting bugs.
     - [`feature_request.yml`](.github/ISSUE_TEMPLATE/feature_request.yml): template for requesting new features.
-    - [`config.yml`](.github/ISSUE_TEMPLATE/config.yml): A template selector to control others' ability to initiate an `issue` without using a template.
+    - [`config.yml`](.github/ISSUE_TEMPLATE/config.yml): A selector for templates that restricts issue initiation without templates.
     
     If you are to change it, refer to [link1](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository), [link2](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms) and [link3](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
    
-1. [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) : standardize the format of `Pull Request`. To change it, refer to [link](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
+3. [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) : standardize the format of `Pull Request`. To change it, refer to [link](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
+
+</details>
+
+<details>
+<summary>Ⅱ 𝐂𝐈/𝐂𝐃 𝐯𝐢𝐚 𝐆𝐢𝐭𝐡𝐮𝐛 𝐀𝐜𝐭𝐢𝐨𝐧 🤖</summary>
+
+> ⚠️⚠️⚠️     
+> • Due to the need of publishing to PyPI and TestPypi, **trusted publishers of  two platform needs to be configured first before use**. Following [tutorial 1](https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/#configuring-trusted-publishing) and [tutorial 2](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/#github-actions) to make it.       
+> 
+> • **NOTE**: The `Environment name` item in configuration should be the same as what you specify in the workflow file.
+> > For example, in the provided [publish_release.yml](.github/workflows/publish_release.yml), the `Environment name` is `pypi` in PyPI platform, cause we specify it in job `Publish-PyPI.environment.name`.
+
+- By creating a `.yml` file under the `.github/workflows/` directory, CI/CD support for the project can be achieved.
+
+- In this template repo, the automation of **steps 6 to 8** in `🔨 Usage` section is implemented. Once a **push with a tag** is made and the **tag matches a template** of the form `v*.*.*`, events below will happen:
+  1. Build distribution packages, i.e., `.tar.gz` and `.whl` files
+  2. Verify meta information of the distribution packages
+  3. Release distribution packages to `PyPI` and `TestPyPI`, respectively
+  4. Generate release according to tag name and `CHANGELOG.md`
+  5. Upload the distribution package to the generated release.
+
+- If you are to change the task flows, please see [Github Actions document](https://docs.github.com/en/actions) for more details.
+  
+> ❗️❗️❗️      
+> If you want to disable the CI/CD feature, there are two options:           
+> • delete the `.github/workflows/` directory        
+> • do `Settings -> Actions -> General -> Disable actions` in project setting.
+
+</details>
 
 ## 📑 To Do
 
 - [x] Add full pipeline of package development, from project preparation to maintaining.
-- [ ] Add CI/CD support, such as GitHub Actions
+- [x] Add CI/CD support, such as GitHub Actions
 - [ ] Add `pyproject.toml` support
 - [x] Add linter
 
 ## 👀 See More
 
-- [Setuptools User Guide](https://setuptools.pypa.io/en/latest/userguide/index.html)
-- [Official Python Packaging User Guide](https://packaging.python.org)
 - [Ruff document](https://docs.astral.sh/ruff/)
 - [Isort document](https://pycqa.github.io/isort/index.html)
+- [Setuptools User Guide](https://setuptools.pypa.io/en/latest/userguide/index.html)
+- [Official Python Packaging User Guide](https://packaging.python.org)
+- [Publishing package using GitHub Actions](https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/)
 
 # 🧾 License
 

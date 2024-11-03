@@ -1,4 +1,14 @@
-# v1.3.0
+<!-- # v1.3.1 -->
+
+![](https://img.shields.io/badge/Version-v1.3.1-green)
+
+## 🌟 Add 
+
+1. `.github/workflows/publish_release.yml` : enable continuous deployment(CD) workflows for automatic package building, publishing, and creating GitHub releases.
+
+---
+
+<!-- # v1.3.0 -->
 
 ![](https://img.shields.io/badge/Version-v1.3.0-green)
 
@@ -12,7 +22,7 @@
 
 ---
 
-# v1.2.3
+<!-- # v1.2.3 -->
 
 ![](https://img.shields.io/badge/Version-v1.2.3-green)
 
@@ -30,7 +40,7 @@
 
 ---
 
-# v1.2.2
+<!-- # v1.2.2 -->
 
 ![](https://img.shields.io/badge/Version-v1.2.2-green)
 
@@ -41,7 +51,7 @@
 
 ---
 
-# v1.2.1
+<!-- # v1.2.1 -->
 
 ![](https://img.shields.io/badge/Version-v1.2.1-green)
 
@@ -52,7 +62,7 @@
 
 ---
 
-# v1.2.0
+<!-- # v1.2.0 -->
 
 ![](https://img.shields.io/badge/Version-v1.2.0-green)
 
@@ -76,7 +86,7 @@ Please refer to steps `6` through `8` in [`README.md`](https://github.com/Ahzyua
 
 ---
 
-# v1.1.0
+<!-- # v1.1.0 -->
 
 ![](https://img.shields.io/badge/Version-v1.1.0-green)
 
@@ -92,7 +102,7 @@ Please refer to steps `6` through `8` in [`README.md`](https://github.com/Ahzyua
 
 ---
 
-# v1.0.1
+<!-- # v1.0.1 -->
 
 ![](https://img.shields.io/badge/Version-v1.0.1-green)
 
@@ -110,7 +120,7 @@ Please refer to steps `6` through `8` in [`README.md`](https://github.com/Ahzyua
 
 ---
 
-# v1.0.0
+<!-- # v1.0.0 -->
 
 ![](https://img.shields.io/badge/Version-v1.0.0-green)
 
