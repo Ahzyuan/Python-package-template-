@@ -24,7 +24,7 @@
 1. 𝐌𝐚𝐢𝐧 𝐬𝐭𝐞𝐩𝐬
     - Fork the repository to your own GitHub account.
     - Clone the forked repository to your local machine.
-    - **Create a new branch for your contribution.**
+    - **Create a new branch for your contribution.** Such as `feature/your-feature-name` or `bugfix/your-bugfix-name`.
     - Make your changes and commit them to your new branch.
     - Push your changes to your forked repository.
     - Create a `Pull Request(PR)` from your forked repository to the original repository.
@@ -32,7 +32,7 @@
 
 2. 𝐏𝐨𝐢𝐧𝐭𝐬 𝐭𝐨 𝐧𝐨𝐭𝐞
 
-    - **Branching management**: Before making code contributions, create a new branch from the `master` branch and give it a descriptive name.
+    - **Branching management**: Before making code contributions, **create a new branch** from the `master` branch and give it a descriptive name. For example, `feature/your-feature-name` or `bugfix/your-bugfix-name`.
 
     - **Code style**: 
         - Follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) code specification.。
