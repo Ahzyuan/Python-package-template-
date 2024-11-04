@@ -1,6 +1,6 @@
 ## 📦 A Project Template for Self-developed Python Package
 
-[![Package Version](https://img.shields.io/badge/Version-v1.3.1-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.3.1)
+[![Package Version](https://img.shields.io/badge/Version-v1.4.0-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.4.0)
 [![License](https://img.shields.io/badge/License-MIT-khaki)](https://opensource.org/license/MIT)
 ![Pypi Template](https://img.shields.io/badge/PyPI-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 
@@ -25,7 +25,7 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 
 We provide:
 
-1. **A fully configured package-setup file**, i.e., [`setup.cfg`](setup.cfg)
+1. **A fully configured package-setup file**, i.e., [`setup.cfg`](setup.cfg) or [`pyproject.toml`](https://github.com/Ahzyuan/Python-package-template/releases/download/v1.4.0/pyproject.toml).
    - It covers most common config items, allows dynamic access to `version`, `README`, and project dependencies at build time.
    - It is well commented, so you don't need to look up [documents](https://setuptools.pypa.io/en/latest/references/keywords.html) to understand each item's meaning.
 
@@ -94,8 +94,144 @@ Python-package-template/
 ## 🔨 Usage
 
 > [!IMPORTANT]   
-> In demo below, we assume that your github ID is `me` and project name is `my-project`.          
-> **❗️❗️❗️ Remember to replace them with your own ID and project name when using ❗️❗️❗️**
+> - In demo below, we assume that your github ID is `me` and project name is `my-project`.         
+>   **❗️❗️❗️ Remember to replace them with your own ID and project name when using ❗️❗️❗️**
+>
+> - This template uses `setup.cfg` to manage all metadata by default. While `pyproject.toml` is an officially recommended alternative, I find it more complicated, so I prefer `setup.cfg`. But if you really want to use `pyproject.toml`, please **replace the `setup.cfg` with following file**. 
+> 
+>    - [Download `pyproject.toml`](https://github.com/Ahzyuan/Python-package-template/releases/download/v1.4.0/pyproject.toml)
+>    - <details>
+>      <summary>𝚙𝚢𝚙𝚛𝚘𝚓𝚎𝚌𝚝.𝚝𝚘𝚖𝚕</summary>
+>
+>       ```toml
+>       # refer to https://packaging.python.org/en/latest/guides/writing-pyproject-toml
+>       # See https://docs.astral.sh/ruff/settings for configuring ruff
+>       
+>       [build-system]  # define build backend and dependencies needed to build your project
+>       requires = ["setuptools>=66.0", "cython", "wheel", "isort", "ruff"]           # dependencies needed to build your project
+>       build-backend = "setuptools.build_meta"                             # build backend
+>       
+>       [project] # define metadata of your project
+>       
+>       # ---------------- Dynamic info ----------------
+>       dynamic = ["version","dependencies"]                                # dynamic info will be filled in by the build backend
+>       
+>       # ---------------- Basic info ----------------
+>       name = "your-package"                                               # package name
+>       authors = [
+>         { name="your-name", email="your-email@mail.com" }, 
+>       ]
+>       maintainers = [
+>         { name="your-name", email="your-email@mail.com" }, 
+>       ]
+>       description = "Package test"                             # one-line description of your project
+>       readme = {file = "README.md", content-type = "text/markdown"}       # specify README file
+>       
+>       # ---------------- Dependency info ----------------
+>       requires-python = ">=3.7"                                           # Python version requirement
+>       
+>       # ---------------- Other ----------------
+>       keywords = ["A","B","c"]      # keywords of your project, will help to suggest your project when people search for these keywords.
+>       classifiers = [               # Trove classifiers, Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+>         "Development Status :: 4 - Beta",
+>         "Intended Audience :: Developers",
+>         "Topic :: Software Development :: Build Tools",
+>         "License :: OSI Approved :: MIT License",
+>         "Programming Language :: Python :: 3",
+>         "Programming Language :: Python :: 3.7",
+>         "Programming Language :: Python :: 3.8",
+>         "Programming Language :: Python :: 3.9",
+>         "Programming Language :: Python :: 3.10",
+>         "Programming Language :: Python :: 3.11",
+>         "Programming Language :: Python :: 3.12",
+>       ]
+>       
+>       # ---------------- Optional dependency ----------------
+>       [project.optional-dependencies] 
+>       docs = ["sphinx>=7.0.0"]
+>       
+>       test = [
+>         "pytest", 
+>         "pytest-sugar"]
+>       
+>       cli = [
+>         "rich",
+>         "click",
+>       ]
+>       
+>       # Install a command as part of your package
+>       [project.gui-scripts]                           # use [project.gui-scripts] to compatiable with differernt system   
+>       your-package = "your-package.cli:app"           # command = package:func
+>       
+>       
+>       # URLs associated with your project
+>       [project.urls]
+>       Homepage = "https://github.com/your-name/your-package"                    
+>       Repository = "https://github.com/your-name/your-package.git" 
+>       Issues = "https://github.com/your-name/your-package/issues" 
+>       Changelog = "https://github.com/your-name/your-package/blob/master/CHANGELOG.md"
+>       
+>       [tool.setuptools.dynamic]
+>       version = {attr = "your-package.__version__"}  # automatically obtain the value by `my_package.__version__`.
+>       dependencies = {file = ["requirements.txt", "requirement.txt", > "requirement"]}
+>       
+>       # -------------------------------- Tools Setting --------------------------------
+>       [tool.setuptools]
+>       license-files = ['LICEN[CS]E*', 'COPYING*', 'NOTICE*', 'AUTHORS*']  # specify License files
+>       
+>       [tool.setuptools.packages]
+>       find = {}  # Scan the project directory with the default parameters
+>       
+>       [tool.ruff]
+>       # Allow lines to be as long as 120.
+>       line-length = 120
+>       
+>       [tool.ruff.format]
+>       # Enable reformatting of code snippets in docstrings.
+>       docstring-code-format = true
+>       
+>       [tool.ruff.lint]
+>       # Skip unused variable rules
+>       ignore = [
+>           "ANN101",  # Missing type annotation for `self` in method
+>           "ANN102",  # Missing type annotation for `cls` in classmethod
+>           "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
+>           "C901",    # function is too complex (12 > 10)
+>           "COM812",  # Trailing comma missing
+>           "D",       # Docstring rules
+>           "EM101",   # Exception must not use a string literal, assign to variable first
+>           "EM102",   # Exception must not use an f-string literal, assign to variable first
+>           "ERA001",  # Found commented-out code
+>           "FBT001",  # Boolean positional arg in function definition
+>           "FBT002",  # Boolean default value in function definition
+>           "FBT003",  # Boolean positional value in function call
+>           "FIX002",  # Line contains TODO
+>           "ISC001",  # Isort
+>           "PLR0911", # Too many return statements (11 > 6)
+>           "PLR2004", # Magic value used in comparison, consider replacing 2 with a constant variable
+>           "PLR0912", # Too many branches
+>           "PLR0913", # Too many arguments to function call
+>           "PLR0915", # Too many statements
+>           "S101",    # Use of `assert` detected
+>           "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
+>           "T201",    # print() found
+>           "T203",    # pprint() found
+>           "TD002",   # Missing author in TODO; try: `# TODO(<author_name>): ...`
+>           "TD003",   # Missing issue link on the line following this TODO
+>           "TD005",   # Missing issue description after `TODO`
+>           "TRY003",  # Avoid specifying long messages outside the exception class
+>           "PLW2901", # `for` loop variable `name` overwritten by assignment target
+>           "SLF001",  # Private member accessed: `_modules`
+>       ]
+>       
+>       [tool.ruff.lint.isort]
+>       length-sort = true                              # sort imports by their string length
+>       combine-as-imports = true                       # combines as imports on the same line
+>       known-first-party = ["your-package"]
+>       lines-after-imports = 1                         # Use a single line after each import block.
+>       single-line-exclusions = ["os", "json", "re"]   # modules to exclude from the single line rule
+>       ```
+> </details>
 
 1. <details>
     <summary>🚀 𝐂𝐫𝐞𝐚𝐭𝐞 𝐲𝐨𝐮𝐫 𝐫𝐞𝐩𝐨</summary>
@@ -169,17 +305,17 @@ Python-package-template/
     <summary>📄 𝐌𝐨𝐝𝐢𝐟𝐲 𝐭𝐡𝐞 𝐟𝐨𝐥𝐥𝐨𝐰𝐢𝐧𝐠 𝐟𝐢𝐥𝐞𝐬</summary>
 
     <details>
-    <summary>① 𝚜𝚎𝚝𝚞𝚙.𝚌𝚏𝚐 (𝚖𝚘𝚜𝚝 𝚒𝚖𝚙𝚘𝚛𝚝𝚊𝚗𝚝)</summary>
+    <summary>① 𝚜𝚎𝚝𝚞𝚙.𝚌𝚏𝚐 / 𝚙𝚢𝚙𝚛𝚘𝚓𝚎𝚌𝚝.𝚝𝚘𝚖𝚕 (𝚖𝚘𝚜𝚝 𝚒𝚖𝚙𝚘𝚛𝚝𝚊𝚗𝚝)</summary>
 
     > 💡 Tips  
     > 
-    > • If your `README` is in `rst` format, you need to change `long_description_content_type` to `"text/x-rst"` instead.  
+    > • If your `README` is in `rst` format, you need to replace `"text/markdown"` with  `"text/x-rst"` in `long_description_content_type`(`setup.cfg`) or `readme`(`pyproject.toml`).  
     > 
-    > • If you want to create a CLI command for your package, enable `[options.entry_points]` option. See more [here](https://packaging.python.org/en/latest/guides/creating-command-line-tools/).
+    > • If you want to create a CLI command for your package, enable `[options.entry_points]` option in `setup.cfg` or `[project.gui-scripts]` in `pyproject.toml`. See more [here](https://packaging.python.org/en/latest/guides/creating-command-line-tools/).
     > 
-    > • If you want more configuration, refer to [here](https://setuptools.pypa.io/en/latest/references/keywords.html)
+    > • If you want more configuration, refer to [keywords of `setup.cfg`](https://setuptools.pypa.io/en/latest/references/keywords.html) or [keywords of `pyproject.toml`](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html)
 
-    **Look for the following variables in the file and modify as per comments.**
+    **Look for the following variables in `setup.cfg` and modify as per comments.**
 
     |       Basic        |    Requirement related     | Package structure related |
     |:------------------:|:--------------------------:|:-------------------------:|
@@ -194,6 +330,20 @@ Python-package-template/
     |     `license`      |                            |                           |
     |   `classifiers`    |                            |                           |
 
+    **If you are using `pyproject.toml`, you may need to replace `your-package` with `my-package` in file first, then check out and modify following variables.**
+
+    |      Basic       |        Requirement related        | Package structure related |
+    |:----------------:|:---------------------------------:|:-------------------------:|
+    |      `name`      |            `requires`             |          `find`           |
+    |    `version`     |         `requires-python`         |                           | 
+    |    `authors`     | `[project.optional-dependencies]` |                           |
+    |  `maintainers`   |                                   |                           |
+    |  `description`   |                                   |                           |
+    |     `readme`     |                                   |                           |
+    | `[project.urls]` |                                   |                           |
+    |    `keywords`    |                                   |                           |
+    |  `classifiers`   |                                   |                           |
+    
     </details>
 
     <details>
@@ -363,7 +513,7 @@ Python-package-template/
     > • Also, don't forget to generate a token for uploading your package. See more [here](https://pypi.org/help/#apitoken).
     
     > 📋 **𝖲𝗎𝗀𝗀𝖾𝗌𝗍𝗂𝗈𝗇**   
-    > You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the process. In this case, you can maintain a **forged `PyPI` server locally**, see [`🧰 Tools Recommended -> pypi-server` below](#tools-recommended).
+    > You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the process. In this case, you can maintain a **forged `PyPI` server locally**, see [`🧰 Tools Recommended -> pypi-server` below](#-tools-recommended).
 
     ```bash
     # pwd: .../MYPROJECT
@@ -379,7 +529,7 @@ Python-package-template/
 
     - Sure, you can paste your token in terminal to go through the process.   
     
-    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in [`configure .pypirc and keyring 🔐` below](#tools-recommended).:
+    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in [`configure .pypirc and keyring 🔐` below](#-tools-recommended).:
 
     </details>
 
@@ -574,7 +724,7 @@ Standardizing project participation cuts communication costs and boosts developm
 
 - [x] Add full pipeline of package development, from project preparation to maintaining.
 - [x] Add CI/CD support, such as GitHub Actions
-- [ ] Add `pyproject.toml` support
+- [x] Add `pyproject.toml` support
 - [x] Add linter
 
 ## 👀 See More

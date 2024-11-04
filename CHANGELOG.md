@@ -1,3 +1,17 @@
+<!-- # v1.4.0 -->
+
+![](https://img.shields.io/badge/Version-v1.4.0-green)
+
+## 🎉 Support `pyproject.toml`  
+
+see assets below.
+
+## 🔄 Change
+
+- `.github/CONTRIBUTING.md`: add suggestion for creating a new branch to submit PR.
+
+---
+
 <!-- # v1.3.1 -->
 
 ![](https://img.shields.io/badge/Version-v1.3.1-green)
