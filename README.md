@@ -350,6 +350,8 @@ Python-package-template/
     <summary> ② 𝚖𝚢-𝚙𝚛𝚘𝚓𝚎𝚌𝚝/__𝚒𝚗𝚒𝚝__.𝚙𝚢 </summary>
 
     - `line 2`: `<your-name>` → `me`, replace with your github ID
+    - replace `<license-name>` with your license name
+    - replace `<full_text-url-of-license-terms>` with your license url, attain it from [choosealicense.com](https://choosealicense.com/)
     - `line 8`: `0.1.0` → `0.0.1`, replace with your project initial version
 
     </details>
@@ -430,7 +432,7 @@ Python-package-template/
     <summary> ⑦ .𝚐𝚒𝚝𝚑𝚞𝚋/𝚠𝚘𝚛𝚔𝚏𝚕𝚘𝚠𝚜/𝚙𝚞𝚋𝚕𝚒𝚜𝚑_𝚛𝚎𝚕𝚎𝚊𝚜𝚎.𝚢𝚖𝚕 </summary>
 
     > • Change this file to use `Github Actions` for package publication.    
-    > • If you want to change the preset workflow, see see [`CI/CD via Github Action 🤖` below](#-project-management) below and refer to [Github Actions document](https://docs.github.com/en/actions)
+    > • If you want to change the preset workflow, see [`CI/CD via Github Action 🤖` below](#-project-management) and refer to [Github Actions document](https://docs.github.com/en/actions)
 
     - `<package-name>` → `my-project`
   
