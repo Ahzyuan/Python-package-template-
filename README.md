@@ -1,6 +1,6 @@
 ## 📦 A Project Template for Self-developed Python Package
 
-[![Package Version](https://img.shields.io/badge/Version-v1.4.0-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.4.0)
+[![Package Version](https://img.shields.io/badge/Version-v1.4.1-green)](https://github.com/Ahzyuan/Python-package-template/releases/tag/v1.4.1)
 [![License](https://img.shields.io/badge/License-MIT-khaki)](https://opensource.org/license/MIT)
 ![Pypi Template](https://img.shields.io/badge/PyPI-Package_pattern-yellow?logo=pypi&labelColor=%23FAFAFA)
 

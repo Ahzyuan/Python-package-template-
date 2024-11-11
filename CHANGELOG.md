@@ -1,3 +1,14 @@
+<!-- # v1.4.1 -->
+
+![](https://img.shields.io/badge/Version-v1.4.1-green)
+
+## 🔄 Change
+
+- `.github/workflows/publish_release.yml`: add `skip-existing: true` to skip publishing when there exists a same version package.
+- `MANIFEST.in`: exclude `shell` files from the package.
+
+---
+
 <!-- # v1.4.0 -->
 
 ![](https://img.shields.io/badge/Version-v1.4.0-green)
