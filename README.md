@@ -26,10 +26,12 @@ This repo provides an 𝐨𝐮𝐭-𝐨𝐟-𝐭𝐡𝐞-𝐛𝐨𝐱 𝐩𝐫�
 We provide:
 
 1. **A fully configured package-setup file**, i.e., [`setup.cfg`](setup.cfg) or [`pyproject.toml`](https://github.com/Ahzyuan/Python-package-template/releases/download/v1.4.0/pyproject.toml).
-   - It covers most common config items, allows dynamic access to `version`, `README`, and project dependencies at build time.
+   - It covers most common config items, allows dynamic access to `version`, `README`, and project dependencies when building.
    - It is well commented, so you don't need to look up [documents](https://setuptools.pypa.io/en/latest/references/keywords.html) to understand each item's meaning.
 
-2. **A complete and concise usage guidance**, i.e. [`🔨 Usage`](#-usage) below.      
+2. **A complete and concise usage guidance**, i.e. the [`🔨 Usage`](#-usage) section below.      
+
+3. **CI/CD support**: Once a **push with a tag** is made and the **tag matches a template** of the form `v*.*.*`, the CI/CD pipeline will be triggered to build the package, upload it to `PyPI` and `TestPyPI` and create a release in your github project according to tag name and `CHANGELOG.md`. See the [`CI/CD via Github Action 🤖`](#-project-management) section below.
 
 </details>
 
@@ -38,27 +40,27 @@ We provide:
 
 We provide a **useful, complete project structure**, which    
 • not only complies with software engineering specifications,    
-• but also includes **all file templates** required for a project and **continuous deployment(CD) workflows**(see [`CI/CD via Github Action 🤖` below](#-project-management)).
+• but also includes **all file templates** required for a project and **continuous deployment(CD) workflows**(see the [`CI/CD via Github Action 🤖`](#-project-management) section below).
 
 Here is the detailed structure of the project:
 
 ```plaix-txt
 Python-package-template/
-├── .github/                      # Storage Github Action workflow files and templates of Issue, PR 
+├── .github/                      # Store Github Action workflow files and templates of Issue, PR 
 │   ├── CONTRIBUTING.md           # Instructions for contributing to project
-│   ├── ISSUE_TEMPLATE            # Storage Issue template files
+│   ├── ISSUE_TEMPLATE            # Store Issue template files
 │   │   ├── bug_report.yml        # Bug report template
 │   │   ├── feature_request.yml   # Feature request template
 │   │   └── config.yml            # Template choosing configuration
 │   ├── PULL_REQUEST_TEMPLATE.md  # Template for PR description
-│   └── workflows                 # Storage Github Action workflow files    
+│   └── workflows                 # Store Github Action workflow files    
 │       └── publish_release.yml   # Workflow for publishing and releaseing Python package
 |
-├── tests/           # Storage unit test code
-│   └── README.md    # Instructions for testing your code
+├── tests/           # Store testing code
+│   └── README.md    # Instructions of how to test your code
 |
 ├── docs/            # Store document related files
-│   └── README.md    # Instructions for building document for your project
+│   └── README.md    # Instructions of how to build document for your project
 |
 ├── examples/        # Store project demo code
 │   └── demo.ipynb   # Demonstration of your project
@@ -67,17 +69,17 @@ Python-package-template/
 │   ├── core.py      # Core code
 │   └── __init__.py  # Package initialization file, defining copyright, version,and other information
 |
-├── .gitignore       # File ignored by Git
+├── .gitignore       # File patterns which will be ignored by Git
 ├── LICENSE          # Project license
-├── MANIFEST.in      # Describe the files included or not included in buildpackage
+├── MANIFEST.in      # Describe the files included or not included in built package
 ├── CHANGELOG.md     # Project changelog
 ├── README.md        # Project description
 ├── requirements.txt # Project dependency
-├── ruff.toml        # Define rules for code style, code inspection, and importmanagement
+├── ruff.toml        # Define rules for code style, code inspection, and import management
 ├── packaging.sh     # Package building script
-├── check_meta.sh    # Distribution metadata checking script
-├── setup.cfg        # Project packaging configuration
-└── setup.py         # Project packaging script
+├── check_meta.sh    # Packaging metadata checking script
+├── setup.cfg        # Packaging configuration
+└── setup.py         # Packaging script
 ```
 
 </details>
@@ -85,8 +87,8 @@ Python-package-template/
 <details>
 <summary>𝐒𝐭𝐚𝐧𝐝𝐚𝐫𝐝 𝐲𝐞𝐭 𝐡𝐢𝐠𝐡𝐥𝐲 𝐜𝐮𝐬𝐭𝐨𝐦𝐢𝐳𝐚𝐛𝐥𝐞</summary>
 
-- **We standardize code sytle and quality** with the wonderful Python linter and formatter [`Ruff`](https://github.com/astral-sh/ruff).
-- **We standardize contributing pipeline** with [`CONTRIBUTING.md`](.github/CONTRIBUTING.md) to cuts communication costs and boosts development efficiency.
+- **We standardize code sytle and quality** with the wonderful Python linter and formatter: [`Ruff`](https://github.com/astral-sh/ruff).
+- **We standardize contributing pipeline** with [`CONTRIBUTING.md`](.github/CONTRIBUTING.md) to cut communication costs and boost development efficiency.
 - **We offer ready-to-use templates** for `issue`, `pull requests(PR)`, and package publishing workflows, complete with modifications and usage instructions to help you customize them effectively.
 
 </details>
@@ -97,9 +99,8 @@ Python-package-template/
 > - In demo below, we assume that your github ID is `me` and project name is `my-project`.         
 >   **❗️❗️❗️ Remember to replace them with your own ID and project name when using ❗️❗️❗️**
 >
-> - This template uses `setup.cfg` to manage all metadata by default. While `pyproject.toml` is an officially recommended alternative, I find it more complicated, so I prefer `setup.cfg`. But if you really want to use `pyproject.toml`, please **replace the `setup.cfg` with following file**. 
+> - This template uses `setup.cfg` to manage all metadata by default. While `pyproject.toml` is an officially recommended alternative, I find it more complicated, so I prefer `setup.cfg`. But if you really want to use `pyproject.toml`, please **replace the `setup.cfg` with `pyproject.toml` below**. Of course, you can download it directly [here](https://github.com/Ahzyuan/Python-package-template/releases/download/v1.4.0/pyproject.toml).
 > 
->    - [Download `pyproject.toml`](https://github.com/Ahzyuan/Python-package-template/releases/download/v1.4.0/pyproject.toml)
 >    - <details>
 >      <summary>𝚙𝚢𝚙𝚛𝚘𝚓𝚎𝚌𝚝.𝚝𝚘𝚖𝚕</summary>
 >
@@ -236,13 +237,13 @@ Python-package-template/
 1. <details>
     <summary>🚀 𝐂𝐫𝐞𝐚𝐭𝐞 𝐲𝐨𝐮𝐫 𝐫𝐞𝐩𝐨</summary>
     
-    Press the `Use this template` button next to `star` button,   
+    Press the `Use this template` button next to `star` button at the top of this page,   
     so as to use this repo as a template to create your repo.
   
 2. <details>
    <summary>📥 𝐂𝐥𝐨𝐧𝐞 𝐲𝐨𝐮𝐫 𝐫𝐞𝐩𝐨 𝐭𝐨 𝐥𝐨𝐜𝐚𝐥 𝐦𝐚𝐜𝐡𝐢𝐧𝐞</summary>
     
-    Find new repo on your GitHub `repositories` page.    
+    Find the newly created repo on your GitHub `repositories` page.    
     Pull it to your machine with `git clone`.
 
     ```bash
@@ -330,7 +331,7 @@ Python-package-template/
     |     `license`      |                            |                           |
     |   `classifiers`    |                            |                           |
 
-    **If you are using `pyproject.toml`, you may need to replace `your-package` with `my-package` in file first, then check out and modify following variables.**
+    **If you are using `pyproject.toml`, you may need to replace `your-package` with `my-package` in the file we provided first, then check out and modify following variables.**
 
     |      Basic       |        Requirement related        | Package structure related |
     |:----------------:|:---------------------------------:|:-------------------------:|
@@ -371,7 +372,7 @@ Python-package-template/
     <details>
     <summary> ④ 𝚛𝚎𝚚𝚞𝚒𝚛𝚎𝚖𝚎𝚗𝚝𝚜.𝚝𝚡𝚝 </summary>
 
-    > Change with your project dependencies, here is an example
+    > Here is an example, change it with the concrete dependencies that your project actually uses. 
 
     ```plain-txt
     setuptools
@@ -386,7 +387,7 @@ Python-package-template/
     <details>
     <summary> ⑤ 𝚁𝙴𝙰𝙳𝙼𝙴.𝚖𝚍 </summary>
 
-    > Change with your project description. Here is an example
+    > Here is an example, change it with your project description. 
 
     ```markdown
     # 🧐 my-project
@@ -432,7 +433,7 @@ Python-package-template/
     <summary> ⑦ .𝚐𝚒𝚝𝚑𝚞𝚋/𝚠𝚘𝚛𝚔𝚏𝚕𝚘𝚠𝚜/𝚙𝚞𝚋𝚕𝚒𝚜𝚑_𝚛𝚎𝚕𝚎𝚊𝚜𝚎.𝚢𝚖𝚕 </summary>
 
     > • Change this file to use `Github Actions` for package publication.    
-    > • If you want to change the preset workflow, see [`CI/CD via Github Action 🤖` below](#-project-management) and refer to [Github Actions document](https://docs.github.com/en/actions)
+    > • If you want to change the preset workflow, see the [`CI/CD via Github Action 🤖`](#-project-management) section below, or refer to [Github Actions document](https://docs.github.com/en/actions)
 
     - `<package-name>` → `my-project`
   
@@ -457,7 +458,7 @@ Python-package-template/
 6.  <details>
     <summary>🗳 𝐁𝐮𝐢𝐥𝐝 𝐝𝐢𝐬𝐭𝐫𝐢𝐛𝐮𝐭𝐢𝐨𝐧 𝐩𝐚𝐜𝐤𝐚𝐠𝐞𝐬</summary>
 
-    > This step will generate `.tar.gz` source distribution file and `.whl` built distribution in new created folder `dist` .
+    > This step will generate `.tar.gz` source distribution file and `.whl` built distribution in a new folder called `dist` .
 
     ```bash
     # pwd: .../MYPROJECT
@@ -495,14 +496,14 @@ Python-package-template/
     check-manifest -u -v
     ```
 
-    ③. `𝖮𝗉𝗍𝗂𝗈𝗇` 𝖵𝖺𝗅𝗂𝖽𝖺𝗍𝖾 𝗉𝖺𝖼𝗄𝖺𝗀𝖾 𝖿𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝗌
+    ③. (`𝖮𝗉𝗍𝗂𝗈𝗇`) 𝖵𝖺𝗅𝗂𝖽𝖺𝗍𝖾 𝗉𝖺𝖼𝗄𝖺𝗀𝖾 𝖿𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝗌
     
     ```bash
     # pwd: .../MYPROJECT
     pip install dist/*.whl
     
     # then test your package to see whether it works well.
-    # this is necessary if you have create a CLI tool for your package.
+    # this is suggested if you have create a CLI tool for your package.
     ```
     
     </details>
@@ -515,7 +516,7 @@ Python-package-template/
     > • Also, don't forget to generate a token for uploading your package. See more [here](https://pypi.org/help/#apitoken).
     
     > 📋 **𝖲𝗎𝗀𝗀𝖾𝗌𝗍𝗂𝗈𝗇**   
-    > You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the process. In this case, you can maintain a **forged `PyPI` server locally**, see [`🧰 Tools Recommended -> pypi-server` below](#-tools-recommended).
+    > You likely have many commits to `PyPI` or `TestPyPI` to familiarize yourself with the publishing operation. In this case, you can maintain a **forged `PyPI` server locally**, see the [`🧰 Tools Recommended -> pypi-server`](#-tools-recommended) section below.
 
     ```bash
     # pwd: .../MYPROJECT
@@ -531,7 +532,7 @@ Python-package-template/
 
     - Sure, you can paste your token in terminal to go through the process.   
     
-    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in [`configure .pypirc and keyring 🔐` below](#-tools-recommended).:
+    - But if you are tired of doing this, you can use `.pypirc` and `keyring` to automatically access your token whenever needed. Follow the step in the [`configure .pypirc and keyring 🔐`](#-tools-recommended) section below.
 
     </details>
 
@@ -542,7 +543,7 @@ Python-package-template/
 > • Now everyone can install it via `pip install my-project`   
 > • To update your package to a new version, you have two choices:    
 > ① Manually update: repeat steps 5 to 8 above.    
-> ② CI/CD workflow(**recommended**): see [`CI/CD via Github Action 🤖` below](#-project-management)
+> ② CI/CD workflow(**recommended**): see the [`CI/CD via Github Action 🤖`](#-project-management) section below.
 
 ## 🧰 Tools Recommended
 
@@ -683,13 +684,14 @@ Standardizing project participation cuts communication costs and boosts developm
 1. [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) : guide other to make contribution to your project. To change it, refer to [link](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
 
 2. [`.github/ISSUE_TEMPLATE`](.github/ISSUE_TEMPLATE) : standardize the format of `issue` reporting. Composed of
-    > Tips: Open the [`Issue page`](https://github.com/Ahzyuan/Python-package-template/issues/new/choose) to see what the template looks like.
 
     - [`bug_report.yml`](.github/ISSUE_TEMPLATE/bug_report.yml): template for reporting bugs.
     - [`feature_request.yml`](.github/ISSUE_TEMPLATE/feature_request.yml): template for requesting new features.
     - [`config.yml`](.github/ISSUE_TEMPLATE/config.yml): A selector for templates that restricts issue initiation without templates.
     
-    If you are to change it, refer to [link1](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository), [link2](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms) and [link3](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
+    > 💡 Tips     
+    > • Open the [`Issue page`](https://github.com/Ahzyuan/Python-package-template/issues/new/choose) in this repo,to see what the template looks like.      
+    > • If you are to change it, refer to [link1](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository), [link2](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms) and [link3](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
    
 3. [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) : standardize the format of `Pull Request`. To change it, refer to [link](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
 
